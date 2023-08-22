@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    Página Inicial
+  Página Inicial
 {% endblock %}
 
 {% block css %}
@@ -13,11 +13,13 @@
 {% block content %}
   <div class="news-container">
     {% for news in news %}
-      <div class="news-card">
-        <h2 class="news-title">{{ news.title }}</h2>
-        <span class="news-date">{{ news.created_at|date:"d/m/Y" }}</span>
-        <img src="{% static news.image.url %}" alt="{{ news.title }}" />
-      </div>
+        <div class="news-card">
+          <a href="{% url 'news-details-page' id=news.id %}">
+            <h2 class="news-title">{{ news.title }}</h2>
+          </a>
+          <span class="news-date">{{ news.created_at|date:"d/m/Y" }}</span>
+          <img src="{% static news.image.url %}" alt="{{ news.title }}" />
+        </div>
     {% endfor %}
   </div>
 {% endblock %}
