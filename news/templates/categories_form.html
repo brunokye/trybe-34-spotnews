@@ -11,11 +11,9 @@
 {% endblock %}
 
 {% block content %}
-  <div class="news-form">
-    <form method="post" action="{% url 'categories-form' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
-  </div>
+  <form class="categories-form" method="post" action="{% url 'categories-form' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
 {% endblock %}
